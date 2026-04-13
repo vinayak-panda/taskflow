@@ -1,5 +1,4 @@
 from app import create_app, db
-from flask_jwt_extended import JWTManager
 from models import TokenBlocklist
 
 app = create_app()
@@ -28,4 +27,4 @@ def revoked_token_callback(jwt_header, jwt_payload):
     return {"success": False, "error": "Token revoked. Please login again."}, 401
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
